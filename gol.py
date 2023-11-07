@@ -17,6 +17,22 @@ def get_alive_neighbor_count(grid,x,y):
 
    return count
 
+def upgraded_grid(grid):
+    
+   
+
+            
+
+
+
+
+
+
+
+    
+    
+
+
    
                 
    

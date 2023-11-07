@@ -1,4 +1,4 @@
-from gol  import get_grid,get_alive_neighbor_count
+from gol  import get_grid,get_alive_neighbor_count,upgraded_grid
 
 
 def test_empty_grid():
@@ -12,6 +12,16 @@ def test_one_cell_alive():
 
 
 def test_multiple_alive_cell():
-      grid=[[0, 0, 1], [1, 1, 0], [1, 0, 0]]
-      x,y = 1,1
+      grid=[[0, 0, 1 ], [1, 1, 0,], [1, 0, 0]]
+      x,y = 1, 1
       assert get_alive_neighbor_count(grid,x,y) == 3
+
+def test_rule_case1():
+      grid=[[1, 1, 1 ], [1, 1, 0,], [0, 0, 0]]
+      x, y = 1, 1
+      assert upgraded_grid(grid) == [[1, 0, 1], [1, 0, 1], [0, 0, 0]]
+
+
+
+
+
