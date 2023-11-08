@@ -1,5 +1,8 @@
 import time
 
+ALIVE = " ■ " 
+DEAD =  " ■ "
+
 
 def get_grid(row, cols):
     return [[0 for _ in range(cols)] for _ in range(row)]
@@ -28,25 +31,31 @@ def upgrade_grid(grid):
             neighbor_count = get_alive_neighbor_count(grid, x, y)
 
             if grid[x][y] == 1:
-                # Cell is currently alive
+                # cell is currently alive
                 if 2 == neighbor_count or neighbor_count == 3:
-                    updated_grid[x][y] = 1  # Cell remains alive
+                    updated_grid[x][y] = 1  # cell remains alive
                 else:
-                    updated_grid[x][y] = 0  # Cell dies
+                    updated_grid[x][y] = 0  # cell dies
             else:
-                # Cell is currently dead
+                # cell is currently dead
                 if neighbor_count == 3:
-                    updated_grid[x][y] = 1  # Cell becomes alive
+                    updated_grid[x][y] = 1  # cell becomes alive
                 else:
-                    updated_grid[x][y] = 0  # Cell remains dead
+                    updated_grid[x][y] = 0  # cell remains dead
     return updated_grid
 
 
 def display_grid(grid):
-
-    for row in grid:
-        print("".join(["\033[1;31;40m ■ " if cell == 1 else " " for cell in row]))
-
+    display=""
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            if grid[i][j] == 1:
+                display += ALIVE + "\033[31m"
+            else:
+                display += DEAD + "\033[37m" 
+        display += "\n"
+    print(display)
+        
 
 def main():
     
@@ -73,9 +82,9 @@ def main():
         
 
     for _ in range(50):
-        print("\033c")
+        print("\033c")   #for clearing terminal in each iteration
         display_grid(grid)
-        time.sleep(0.2)
+        time.sleep(0.7)
         grid = upgrade_grid(grid)
 
 
