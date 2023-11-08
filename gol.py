@@ -1,6 +1,10 @@
+import time
+
 
 def get_grid(row,cols):
    return [[0 for _ in range(cols)] for _ in range(row)]
+
+
 
 def get_alive_neighbor_count(grid,x,y):
    count = 0
@@ -17,7 +21,53 @@ def get_alive_neighbor_count(grid,x,y):
 
    return count
 
-def upgraded_grid(grid):
+def upgrade_grid(grid):
+    
+   updated_grid = [[0 for _ in range(len(grid[0]))] for _ in range(len(grid))]
+
+
+   for x in range (len(grid)):
+      for y in range(len(grid[0])):
+
+         neighbor_count = get_alive_neighbor_count(grid, x, y)   
+            
+         if grid[x][y] == 1:
+    # Cell is currently alive
+            if 2 == neighbor_count or neighbor_count == 3:
+                  updated_grid[x][y] = 1  # Cell remains alive
+            else:
+                  updated_grid[x][y] = 0  # Cell dies
+         else:
+    # Cell is currently dead
+            if neighbor_count == 3:
+               updated_grid[x][y] = 1  # Cell becomes alive
+            else:
+               updated_grid[x][y] = 0  # Cell remains dead
+   return updated_grid
+            
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+   
+
+   
+   
+
+
+
+
+   
+
     
    
 
