@@ -23,6 +23,10 @@ def test_rule_case1():
 
 
 
+def test_rule_case2():
+    grid=[[1, 0, 1 ],[1, 0, 1],[0, 0, 0,]]
+    assert upgrade_grid(grid) == [[0, 0, 0], [0, 0, 0], [0, 0, 0]] 
+
 
 
 
