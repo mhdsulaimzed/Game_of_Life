@@ -73,7 +73,7 @@ def main():
         
 
     for _ in range(50):
-        print(r"\033c")
+        print("\033c")
         display_grid(grid)
         time.sleep(0.2)
         grid = upgrade_grid(grid)
