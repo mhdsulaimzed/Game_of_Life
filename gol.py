@@ -24,7 +24,13 @@ def get_alive_neighbor_count(grid, x, y):
 
 
 def upgrade_grid(grid):
-    updated_grid = [[0 for _ in range(len(grid[0]))] for _ in range(len(grid))]
+    
+    updated_grid = [] 
+    for _ in range (len(grid)):
+        row = []
+        for  _ in range (len(grid[0])):
+            row.append(0)
+        updated_grid.append(row)
 
     for x in range(len(grid)):
         for y in range(len(grid[0])):
