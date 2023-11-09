@@ -6,7 +6,7 @@ def test_empty_grid():
  
 
 def test_one_cell_alive():
-  rid=[[0, 0, 1], [0, 1, 0], [0, 0, 0]]
+  grid=[[0, 0, 1], [0, 1, 0], [0, 0, 0]]
   x,y=1,1
   assert get_alive_neighbor_count(grid,x,y) == 1  
 
